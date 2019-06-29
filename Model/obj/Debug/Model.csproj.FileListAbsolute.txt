@@ -1,0 +1,14 @@
+C:\Users\HauMaster\Desktop\OnlineShop\Model\bin\Debug\Model.dll.config
+C:\Users\HauMaster\Desktop\OnlineShop\Model\bin\Debug\Model.dll
+C:\Users\HauMaster\Desktop\OnlineShop\Model\bin\Debug\Model.pdb
+C:\Users\HauMaster\Desktop\OnlineShop\Model\bin\Debug\EntityFramework.dll
+C:\Users\HauMaster\Desktop\OnlineShop\Model\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\HauMaster\Desktop\OnlineShop\Model\bin\Debug\EntityFramework.xml
+C:\Users\HauMaster\Desktop\OnlineShop\Model\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\HauMaster\Desktop\OnlineShop\Model\obj\Debug\Model.csprojResolveAssemblyReference.cache
+C:\Users\HauMaster\Desktop\OnlineShop\Model\obj\Debug\Model.dll
+C:\Users\HauMaster\Desktop\OnlineShop\Model\obj\Debug\Model.pdb
+C:\Users\HauMaster\Desktop\OnlineShop\Model\bin\Debug\PagedList.dll
+C:\Users\HauMaster\Desktop\OnlineShop\Model\bin\Debug\PagedList.Mvc.dll
+C:\Users\HauMaster\Desktop\OnlineShop\Model\bin\Debug\PagedList.xml
+C:\Users\HauMaster\Desktop\OnlineShop\Model\bin\Debug\PagedList.Mvc.xml

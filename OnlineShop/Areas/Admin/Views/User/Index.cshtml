@@ -1,0 +1,57 @@
+﻿@model PagedList.IPagedList<Model.EF.User>
+@using PagedList.Mvc
+
+@{
+    ViewBag.Title = "Quản lí người dùng";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@section breadcrumb{
+    <li class="breadcrumb-item active">User</li>
+}
+
+<!-- DataTables Example -->
+<div class="card mb-3">
+    <div class="card-header">
+        <i class="fas fa-table"></i>
+        Data Table Example
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Tài khoản</th>
+                        <th>Tên</th>
+                        <th>Email</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th></th>
+                        <th>Tài khoản</th>
+                        <th>Tên</th>
+                        <th>Email</th>
+                    </tr>
+                </tfoot>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                <a href="/User/Edit/@item.ID">Sửa</a> /
+                                <a href="/User/Delete/@item.ID">Xóa</a>
+                            </td>
+                            <td>@item.UserName</td>
+                            <td>@item.Name</td>
+                            <td>@item.Email</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            @*@Html.PagedListPager(Model, page => Url.Action("Index", new { page }))*@
+        </div>
+    </div>
+</div>
+
