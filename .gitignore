@@ -60,6 +60,8 @@ Icon?
 Thumbs.db
 [Bb]in
 [Oo]bj
+*/[Bb]in
+*/[Oo]bj
 [Tt]est[Rr]esults
 *.suo
 *.user
