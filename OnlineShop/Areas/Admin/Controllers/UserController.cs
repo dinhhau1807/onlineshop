@@ -52,6 +52,7 @@ namespace OnlineShop.Areas.Admin.Controllers
             return View();
         }
 
+        [HttpGet]
         public ActionResult Edit(int id)
         {
             var user = new UserDao().ViewDetail(id);
