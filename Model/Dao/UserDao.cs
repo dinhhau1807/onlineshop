@@ -24,6 +24,18 @@ namespace Model.Dao
             return entity.ID;
         }
 
+        public bool Update(User entity)
+        {
+            var user = _context.Users.Find(entity.ID);
+            user.Name = entity.Name;
+            user.Address = entity.Address;
+            user.Email = entity.Email;
+            user.ModifedBy = entity.ModifedBy;
+            user.ModifiedDate = DateTime.Now;
+            _context.SaveChanges();
+            return true;
+        }
+
         public IEnumerable<User> ListAllPaging(int page, int pageSize)
         {
             return _context.Users.OrderBy(x => x.ID).ToPagedList(page, pageSize);
