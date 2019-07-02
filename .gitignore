@@ -80,5 +80,5 @@ _[Ss]cripts
 *.dot[Cc]over
 #Exclude .config file#
 ######################
-*/Web.config
-*/App.config
+OnlineShop/Web.config
+Model/App.config
