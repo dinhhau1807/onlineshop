@@ -1,5 +1,6 @@
 ﻿@model Model.EF.User
 
+
 @{
     ViewBag.Title = "Chỉnh sửa người dùng";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
@@ -13,7 +14,7 @@
 <div class="card mb-3">
     <div class="card-header">
         <i class="fas fa-table"></i>
-        Thêm người dùng mới
+        Chỉnh sửa người dùng
     </div>
     <div class="card-body">
         @using (Html.BeginForm("Edit", "User", FormMethod.Post))
@@ -66,7 +67,7 @@
 
                 <div class="form-group">
                     <div class="col-md-offset-2 col-md-6 text-right">
-                        <button type="submit" class="btn btn-primary">Thêm mới</button>
+                        <button type="submit" class="btn btn-primary">Lưu chỉnh sửa</button>
                     </div>
                 </div>
             </div>

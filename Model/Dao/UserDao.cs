@@ -28,6 +28,10 @@ namespace Model.Dao
         {
             var user = _context.Users.Find(entity.ID);
             user.Name = entity.Name;
+            if (!string.IsNullOrEmpty(entity.Password))
+            {
+                user.Password = entity.Password;
+            }
             user.Address = entity.Address;
             user.Email = entity.Email;
             user.ModifedBy = entity.ModifedBy;
@@ -75,6 +79,21 @@ namespace Model.Dao
                         return -2;
                     }
                 }
+            }
+        }
+
+        public bool Delete(int id)
+        {
+            try
+            {
+                var user = _context.Users.Find(id);
+                _context.Users.Remove(user);
+                _context.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
             }
         }
     }

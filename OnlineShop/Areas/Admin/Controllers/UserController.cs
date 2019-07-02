@@ -58,5 +58,40 @@ namespace OnlineShop.Areas.Admin.Controllers
             var user = new UserDao().ViewDetail(id);
             return View(user);
         }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(User user)
+        {
+            if (ModelState.IsValid)
+            {
+                if (!string.IsNullOrEmpty(user.Password))
+                {
+                    user.Password = Encryptor.MD5Hash(user.Password);
+                }
+
+                var dao = new UserDao();
+                bool result = dao.Update(user);
+
+                if (result)
+                {
+                    return RedirectToAction("Index", "User");
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Cập nhật user không thành công.");
+                }
+
+                return View("Index");
+            }
+            return View();
+        }
+
+        [HttpDelete]
+        public ActionResult Delete(int id)
+        {
+            new UserDao().Delete(id);
+            return RedirectToAction("Index");
+        }
     }
 }
