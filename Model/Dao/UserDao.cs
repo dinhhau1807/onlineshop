@@ -46,6 +46,11 @@ namespace Model.Dao
             return _context.Users.SingleOrDefault(x => x.UserName == userName);
         }
 
+        public User ViewDetail(int id)
+        {
+            return _context.Users.Find(id);
+        }
+
         public int Login(string userName, string passWord)
         {
             var result = _context.Users.SingleOrDefault(x => x.UserName == userName);
