@@ -2681,6 +2681,7 @@
     <Folder Include="Areas\Admin\Views\Base\" />
     <Folder Include="assets\client\" />
     <Folder Include="Controllers\" />
+    <Folder Include="Data\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
