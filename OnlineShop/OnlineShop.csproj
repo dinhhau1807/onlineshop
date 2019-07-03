@@ -179,6 +179,7 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\BaseController.cs" />
     <Compile Include="Areas\Admin\Controllers\CategoryController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ContentController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\LoginController.cs" />
     <Compile Include="Areas\Admin\Controllers\UserController.cs" />
@@ -4149,6 +4150,7 @@
     <Content Include="assets\admin\js\plugins\ckfinder\src\CKFinder.Connector.WebApp\plugins\README.md" />
     <Content Include="assets\admin\js\plugins\ckfinder\src\CKFinder.Connector.WebApp\README.md" />
     <Content Include="assets\admin\js\plugins\ckfinder\src\CKFinder.Connector.WebApp\Web.config" />
+    <Content Include="Areas\Admin\Views\Category\Create.cshtml" />
     <None Include="assets\admin\js\plugins\ckfinder\src\CKFinder.Connector.WebApp\Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -4210,7 +4212,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Views\Base\" />
-    <Folder Include="Areas\Admin\Views\Category\" />
+    <Folder Include="Areas\Admin\Views\Content\" />
     <Folder Include="assets\admin\js\plugins\ckfinder\App_Data\" />
     <Folder Include="assets\admin\js\plugins\ckfinder\src\CKFinder.Connector.Plugin.DiskQuota\bin\Debug\" />
     <Folder Include="assets\admin\js\plugins\ckfinder\src\CKFinder.Connector.Plugin.DiskQuota\obj\Debug\" />
