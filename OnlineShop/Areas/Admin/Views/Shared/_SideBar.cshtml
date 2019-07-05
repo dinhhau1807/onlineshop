@@ -1,37 +1,60 @@
 ﻿
 <ul class="sidebar navbar-nav">
+
+    <!-- Trang chu -->
     <li class="nav-item active">
-        <a class="nav-link" href="index.html">
+        <a class="nav-link" href="/Admin/Home/Index">
             <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>Dashboard</span>
+            <span>Trang chủ</span>
         </a>
     </li>
+
+    <!-- He thong -->
     <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class="fas fa-fw fa-folder"></i>
-            <span>Pages</span>
+            <i class="fas fa-fw fa-sitemap"></i>
+            <span>Hệ thống</span>
         </a>
         <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-            <h6 class="dropdown-header">Login Screens:</h6>
-            <a class="dropdown-item" href="login.html">Login</a>
-            <a class="dropdown-item" href="register.html">Register</a>
-            <a class="dropdown-item" href="forgot-password.html">Forgot Password</a>
-            <div class="dropdown-divider"></div>
-            <h6 class="dropdown-header">Other Pages:</h6>
-            <a class="dropdown-item" href="404.html">404 Page</a>
-            <a class="dropdown-item" href="blank.html">Blank Page</a>
+            <a class="dropdown-item" href="/Admin/UserGroup/Index">Nhóm người dùng</a>
+            <a class="dropdown-item" href="/Admin/User/Index">Tin tức</a>
         </div>
     </li>
-    <li class="nav-item">
-        <a class="nav-link" href="charts.html">
-            <i class="fas fa-fw fa-chart-area"></i>
-            <span>Charts</span>
+
+
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-fw fa-newspaper"></i>
+            <span>Tin tức</span>
         </a>
+        <div class="dropdown-menu" aria-labelledby="pagesDropdown">
+            <a class="dropdown-item" href="/Admin/Category/Index">Danh mục</a>
+            <a class="dropdown-item" href="/Admin/Content/Index">Tin tức</a>
+        </div>
     </li>
-    <li class="nav-item">
-        <a class="nav-link" href="tables.html">
-            <i class="fas fa-fw fa-table"></i>
-            <span>Tables</span>
+
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-fw fa-layer-group"></i>
+            <span>Sản phẩm</span>
         </a>
+        <div class="dropdown-menu" aria-labelledby="pagesDropdown">
+            <a class="dropdown-item" href="/Admin/ProductCategory/Index">Danh mục</a>
+            <a class="dropdown-item" href="/Admin/Product/Index">Sản phẩm</a>
+        </div>
+    </li>
+
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-fw fa-tasks"></i>
+            <span>Quản lí chung</span>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="pagesDropdown">
+            <a class="dropdown-item" href="/Admin/About/Index">Giới thiệu</a>
+            <a class="dropdown-item" href="/Admin/Footer/Index">Footer</a>
+            <a class="dropdown-item" href="/Admin/Footer/Index">Menu</a>
+            <a class="dropdown-item" href="/Admin/Footer/Index">Slide</a>
+            <a class="dropdown-item" href="/Admin/Footer/Index">Phản hồi</a>
+        </div>
     </li>
 </ul>
