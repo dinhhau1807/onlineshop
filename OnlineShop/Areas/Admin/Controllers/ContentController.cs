@@ -26,7 +26,7 @@ namespace OnlineShop.Areas.Admin.Controllers
         [HttpPost]
         public ActionResult Create(Content model)
         {
-            if (!ModelState.IsValid)
+            if (ModelState.IsValid)
             {
 
             }
@@ -34,7 +34,28 @@ namespace OnlineShop.Areas.Admin.Controllers
             return View();
         }
 
-       
+        [HttpGet]
+        public ActionResult Edit(long id)
+        {
+            var dao = new ContentDao();
+            var content = dao.GetByID(id);
+
+            SetViewBag(content.CategoryID);
+
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Edit(Content model)
+        {
+            if (ModelState.IsValid)
+            {
+
+            }
+            SetViewBag(model.CategoryID);
+            return View();
+        }
+
         public void SetViewBag(long? selectedId = null)
         {
             var dao = new CategoryDao();
