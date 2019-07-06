@@ -231,6 +231,7 @@
   <ItemGroup>
     <Content Include="assets\admin\css\sb-admin.css" />
     <Content Include="assets\admin\css\sb-admin.min.css" />
+    <Content Include="assets\admin\js\controller\userController.js" />
     <Content Include="assets\admin\js\demo\chart-area-demo.js" />
     <Content Include="assets\admin\js\demo\chart-bar-demo.js" />
     <Content Include="assets\admin\js\demo\chart-pie-demo.js" />
