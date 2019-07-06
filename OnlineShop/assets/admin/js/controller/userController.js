@@ -17,7 +17,7 @@
                     
                     console.log(response);
 
-                    if (response.status == true) {
+                    if (response.status === true) {
                         btn.text('Kích hoạt');
                     } else {
                         btn.text('Khóa');
