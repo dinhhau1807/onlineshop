@@ -40,6 +40,7 @@ namespace OnlineShop.Areas.Admin.Controllers
 
                 if (id > 0)
                 {
+                    base.SetAlert("Thêm user thành công.", "success");
                     return RedirectToAction("Index", "User");
                 }
                 else
@@ -75,6 +76,7 @@ namespace OnlineShop.Areas.Admin.Controllers
 
                 if (result)
                 {
+                    base.SetAlert("Sửa user thành công.", "success");
                     return RedirectToAction("Index", "User");
                 }
                 else

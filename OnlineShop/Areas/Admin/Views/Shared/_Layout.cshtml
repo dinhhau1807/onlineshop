@@ -108,6 +108,13 @@
                     @RenderSection("breadcrumb", required: true)
                 </ol>
 
+                @if (TempData["AlertMessage"] != null)
+                {
+                    <div id="AlertBox" class="alert @TempData["AlertType"] hide">
+                        @TempData["AlertMessage"]
+                    </div>
+                }
+
                 @RenderBody()
 
                 @RenderPage("_Footer.cshtml")
@@ -157,7 +164,7 @@
     <script src="~/assets/admin/js/plugins/ckeditor/ckeditor.js"></script>
 
     <!-- Custom scripts for all pages-->
-    <script src="~/assets/admin/js/sb-admin.min.js"></script>
+    <script src="~/assets/admin/js/sb-admin.js"></script>
 
     @RenderSection("jsFooter", required: false)
 
