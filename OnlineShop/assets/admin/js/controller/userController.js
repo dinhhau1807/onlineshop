@@ -15,7 +15,7 @@
                 type: "POST",
                 success: function (response) {
                     
-                    console.log(response);
+                    //console.log(response);
 
                     if (response.status === true) {
                         btn.text('Kích hoạt');
