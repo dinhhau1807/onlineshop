@@ -32,7 +32,7 @@ namespace OnlineShop.Controllers
         [ChildActionOnly]
         public ActionResult Footer()
         {
-            var model = new MenuDao().ListByGroupId(2);
+            var model = new FooterDao().GetFooter();
             return PartialView(model);
         }
     }
