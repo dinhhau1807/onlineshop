@@ -18,7 +18,7 @@ namespace Model.Dao
 
         public List<Menu> ListByGroupId(int groupId)
         {
-            return _context.Menus.Where(x => x.TypeID == groupId).ToList();
+            return _context.Menus.Where(x => x.TypeID == groupId && x.Status == true).OrderBy(x => x.DisplayOrder).ToList();
         }
     }
 }

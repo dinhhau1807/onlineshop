@@ -21,5 +21,19 @@ namespace OnlineShop.Controllers
             var model = new MenuDao().ListByGroupId(1);
             return PartialView(model);
         }
+
+        [ChildActionOnly]
+        public ActionResult TopMenu()
+        {
+            var model = new MenuDao().ListByGroupId(2);
+            return PartialView(model);
+        }
+
+        [ChildActionOnly]
+        public ActionResult Footer()
+        {
+            var model = new MenuDao().ListByGroupId(2);
+            return PartialView(model);
+        }
     }
 }
