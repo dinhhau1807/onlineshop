@@ -12,6 +12,8 @@ namespace OnlineShop.Controllers
         // GET: Home
         public ActionResult Index()
         {
+            ViewBag.Slides = new SlideDao().ListAll();
+
             return View();
         }
 
