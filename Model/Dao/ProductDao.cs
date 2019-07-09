@@ -26,6 +26,12 @@ namespace Model.Dao
             return _context.Products.Where(x => x.TopHot != null && x.TopHot > DateTime.Now).OrderByDescending(x => x.CreatedDate).Take(top).ToList();
         }
 
+        public List<Product> ListRelatedProduct(long productId)
+        {
+            var product = _context.Products.Find(productId);
+            return _context.Products.Where(x => x.ID != productId && x.CategoryID == product.CategoryID).ToList();
+        }
+
         public Product ViewDetail(long id)
         {
             return _context.Products.Find(id);
