@@ -2828,11 +2828,13 @@
     <Content Include="assets\admin\vendor\jquery\jquery.min.js" />
     <Content Include="assets\admin\vendor\jquery\jquery.slim.js" />
     <Content Include="assets\admin\vendor\jquery\jquery.slim.min.js" />
+    <Content Include="assets\client\css\all.min.css" />
     <Content Include="assets\client\css\bootstrap-theme.css" />
     <Content Include="assets\client\css\bootstrap-theme.min.css" />
     <Content Include="assets\client\css\bootstrap.css" />
     <Content Include="assets\client\css\bootstrap.min.css" />
     <Content Include="assets\client\css\easy-responsive-tabs.css" />
+    <Content Include="assets\client\css\fontawesome.min.css" />
     <Content Include="assets\client\css\global.css" />
     <Content Include="assets\client\css\slider.css" />
     <Content Include="assets\client\css\style.css" />
@@ -2887,9 +2889,11 @@
     <Content Include="assets\client\images\twitter.png" />
     <Content Include="assets\client\images\value-rating.png" />
     <Content Include="assets\client\images\wishlist.png" />
+    <Content Include="assets\client\js\all.min.js" />
     <Content Include="assets\client\js\bootstrap.min.js" />
     <Content Include="assets\client\js\easing.js" />
     <Content Include="assets\client\js\easyResponsiveTabs.js" />
+    <Content Include="assets\client\js\fontawesome.min.js" />
     <Content Include="assets\client\js\jquery-1.11.3.js" />
     <Content Include="assets\client\js\jquery-1.7.2.min.js" />
     <Content Include="assets\client\js\jquery.accordion.js" />
@@ -3133,6 +3137,9 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Views\Base\" />
+    <Folder Include="assets\client\less\" />
+    <Folder Include="assets\client\scss\" />
+    <Folder Include="assets\client\webfonts\" />
     <Folder Include="Data\" />
     <Folder Include="Models\" />
   </ItemGroup>
