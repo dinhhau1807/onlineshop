@@ -1,4 +1,5 @@
 ﻿using Model.Dao;
+using Model.EF;
 using OnlineShop.Common;
 using OnlineShop.Models;
 using System;
@@ -114,7 +115,58 @@ namespace OnlineShop.Controllers
             });
         }
 
+        [HttpGet]
         public ActionResult Payment()
+        {
+            var cart = Session[CommonConstants.CartSession];
+            var list = new List<CartItem>();
+            if (cart != null)
+            {
+                list = (List<CartItem>)cart;
+            }
+            return View(list);
+        }
+
+        [HttpPost]
+        public ActionResult Payment(string shipName, string mobile, string address, string email)
+        {
+            var order = new Order
+            {
+                CreatedDate = DateTime.Now,
+                ShipName = shipName,
+                ShipAddress = address,
+                ShipMobile = mobile,
+                ShipEmail = email
+            };
+
+            try
+            {
+                var id = new OrderDao().Insert(order);
+                var cart = (List<CartItem>)Session[CommonConstants.CartSession];
+                var detailDao = new OrderDetailDao();
+                foreach (var item in cart)
+                {
+                    var orderDetail = new OrderDetail
+                    {
+                        ProductID = item.Product.ID,
+                        OrderID = id,
+                        Price = item.Product.Price,
+                        Quantity = item.Quantity
+                    };
+
+                    detailDao.Insert(orderDetail);
+                }
+            }
+            catch (Exception)
+            {
+                // logs
+                return Redirect("/loi-thanh-toan");
+            }
+
+            return Redirect("/hoan-thanh");
+        }
+
+        public ActionResult Success()
         {
             return View();
         }
