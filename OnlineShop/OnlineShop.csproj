@@ -2905,6 +2905,7 @@
     <Content Include="assets\client\js\script.js" />
     <Content Include="assets\client\js\slides.min.jquery.js" />
     <Content Include="assets\client\js\startstop-slider.js" />
+    <Content Include="assets\client\template\neworder.html" />
     <Content Include="Content\PagedList.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -3158,6 +3159,10 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{B130D090-96E6-426A-9AA0-A5E85D19C8E4}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Model\Model.csproj">
       <Project>{a34d021d-5231-4595-80dd-766326ce2fe9}</Project>
       <Name>Model</Name>
