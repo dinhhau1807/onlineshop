@@ -1,0 +1,88 @@
+﻿
+@model Model.EF.Contact
+
+@{
+    ViewBag.Title = "Liên hệ";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Header{
+    <style>
+        #mapCanvas {
+            height: 600px;
+        }
+    </style>
+}
+
+@section jsFooter{
+    <script>
+        function initMap() {
+            var hcm = { lat: 10.8122809, lng: 106.6539669 };
+            var map = new google.maps.Map(document.getElementById('mapCanvas'), {
+                zoom: 8,
+                center: hcm
+            });
+
+            var contentString = '@Html.Raw(Model.Content)';
+
+            var infowindow = new google.maps.InfoWindow({
+                content: contentString
+            });
+
+            var marker = new google.maps.Marker({
+                position: hcm,
+                map: map,
+                title: 'Oneline Shop'
+            });
+            marker.addListener('click', function () {
+                infowindow.open(map, marker);
+            });
+        }
+    </script>
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDbalyzcykYe41PvEuBU2HcfgdgQI-LdQU&callback=initMap">
+    </script>
+    <script src="~/assets/client/js/controller/contactController.js"></script>
+}
+
+<div class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="col-md-6">
+                <h2>Thông tin liên hệ</h2>
+                @Html.Raw(Model.Content)
+
+                <br />
+                <h2>Gửi thông tin</h2>
+                <form>
+                    <div class="form-group">
+                        <label>Họ tên</label>
+                        <input type="text" id="txtName" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label>Điện thoại</label>
+                        <input type="text" id="txtMobile" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label>Địa chỉ</label>
+                        <input type="text" id="txtAddress" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="text" id="txtEmail" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label>Yêu cầu</label>
+                        <textarea id="txtContent" class="form-control"></textarea>
+                    </div>
+                    <button id="btnSend" class="btn btn-success">Gửi đi</button>
+                </form>
+            </div>
+            <div class="col-md-6">
+                <h2>Bản đồ</h2>
+                <div id="mapCanvas" class="map">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
