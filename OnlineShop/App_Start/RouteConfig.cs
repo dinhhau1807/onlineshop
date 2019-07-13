@@ -13,6 +13,11 @@ namespace OnlineShop
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            // BotDetect requests must not be routed 
+            routes.IgnoreRoute("BotDetectCaptcha.ashx/{*pathInfo}");
+            routes.IgnoreRoute("{*botdetect}",
+              new { botdetect = @"(.*)BotDetectCaptcha\.ashx" });
+
             routes.MapRoute(
                 name: "Product Category",
                 url: "san-pham/{metatitle}-{cateId}",

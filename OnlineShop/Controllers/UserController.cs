@@ -1,5 +1,7 @@
-﻿using Model.Dao;
+﻿using BotDetect.Web.Mvc;
+using Model.Dao;
 using Model.EF;
+using OnlineShop.Common;
 using OnlineShop.Models;
 using System;
 using System.Collections.Generic;
@@ -18,6 +20,7 @@ namespace OnlineShop.Controllers
         }
 
         [HttpPost]
+        [CaptchaValidation("CaptchaCode", "registerCaptcha", "Mã xác nhận không đúng.")]
         public ActionResult Register(RegisterModel model)
         {
             if (ModelState.IsValid)
@@ -36,7 +39,7 @@ namespace OnlineShop.Controllers
                     var user = new User
                     {
                         UserName = model.UserName,
-                        Password = model.Password,
+                        Password = Encryptor.MD5Hash(model.Password),
                         Name = model.Name,
                         Phone = model.Phone,
                         Email = model.Email,
@@ -47,7 +50,7 @@ namespace OnlineShop.Controllers
 
                     var result = dao.Insert(user);
 
-                    if (result>0)
+                    if (result > 0)
                     {
                         ViewBag.Success = "Đăng ký thành công";
                         model = new RegisterModel();
@@ -60,6 +63,57 @@ namespace OnlineShop.Controllers
             }
 
             return View(model);
+        }
+
+        [HttpGet]
+        public ActionResult Login()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Login(LoginModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var dao = new UserDao();
+                var result = dao.Login(model.UserName, Encryptor.MD5Hash(model.Password));
+
+                if (result == 1)
+                {
+                    var user = dao.GetById(model.UserName);
+                    var userSession = new UserLogin();
+                    userSession.UserName = user.UserName;
+                    userSession.UserID = user.ID;
+
+                    Session.Add(CommonConstants.USER_SESSION, userSession);
+                    return Redirect("/");
+                }
+                else if (result == 0)
+                {
+                    ModelState.AddModelError("", "Tài khoản không tồn tại.");
+                }
+                else if (result == -1)
+                {
+                    ModelState.AddModelError("", "Tài khoản đang bị khóa.");
+                }
+                else if (result == -2)
+                {
+                    ModelState.AddModelError("", "Mật khẩu không đúng.");
+                }
+            }
+            else
+            {
+                ModelState.AddModelError("", "Đăng nhập không đúng.");
+            }
+
+            return View(model);
+        }
+
+        public ActionResult Logout()
+        {
+            Session[CommonConstants.USER_SESSION] = null;
+            return Redirect("/");
         }
     }
 }
