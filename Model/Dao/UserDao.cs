@@ -24,6 +24,19 @@ namespace Model.Dao
             return entity.ID;
         }
 
+        public long InsertForFacebook(User entity)
+        {
+            var user = _context.Users.SingleOrDefault(x => x.UserName == entity.UserName);
+            if (user == null)
+            {
+                _context.Users.Add(entity);
+                _context.SaveChanges();
+                return entity.ID;
+            }
+
+            return user.ID;
+        }
+
         public bool Update(User entity)
         {
             var user = _context.Users.Find(entity.ID);
