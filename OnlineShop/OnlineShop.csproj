@@ -3128,6 +3128,7 @@
     <Content Include="assets\client\font\glyphicons-halflings-regular.ttf" />
     <Content Include="assets\client\font\glyphicons-halflings-regular.woff" />
     <Content Include="assets\client\font\glyphicons-halflings-regular.woff2" />
+    <Content Include="Areas\Admin\Views\Shared\_Navigation.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -3191,6 +3192,10 @@
     <ProjectReference Include="..\Model\Model.csproj">
       <Project>{a34d021d-5231-4595-80dd-766326ce2fe9}</Project>
       <Name>Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\StaticResource\StaticResource.csproj">
+      <Project>{6a0de26a-db8e-4bb0-bd6e-7c8d4492939f}</Project>
+      <Name>StaticResource</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Model.Dao;
+using Model.EF;
+using OnlineShop.Common;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -17,6 +20,27 @@ namespace OnlineShop.Areas.Admin.Controllers
         public ActionResult Create()
         {
             return View();
+        }
+
+        [HttpPost]
+        public ActionResult Create(Category model)
+        {
+            if (ModelState.IsValid)
+            {
+                var currentCulture = Session[CommonConstants.CurrentCulture];
+                model.Language = currentCulture.ToString();
+                var id = new CategoryDao().Insert(model);
+                if (id > 0)
+                {
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    ModelState.AddModelError("", StaticResouce.Resources.InsertCategoryFailed);
+                }
+            }
+
+            return View(model);
         }
     }
 }

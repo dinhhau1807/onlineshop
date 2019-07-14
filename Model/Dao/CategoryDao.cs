@@ -20,5 +20,12 @@ namespace Model.Dao
         {
             return _context.Categories.Where(x => x.Status == true).ToList();
         }
+
+        public long Insert(Category category)
+        {
+            _context.Categories.Add(category);
+            _context.SaveChanges();
+            return category.ID;
+        }
     }
 }
