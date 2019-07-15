@@ -2861,6 +2861,7 @@
     <Content Include="assets\client\css\easy-responsive-tabs.css" />
     <Content Include="assets\client\css\fontawesome.min.css" />
     <Content Include="assets\client\css\global.css" />
+    <Content Include="assets\client\css\jquery-ui.css" />
     <Content Include="assets\client\css\slider.css" />
     <Content Include="assets\client\css\style.css" />
     <Content Include="assets\client\data\Provinces_Data.xml" />
@@ -2917,6 +2918,7 @@
     <Content Include="assets\client\images\wishlist.png" />
     <Content Include="assets\client\js\all.min.js" />
     <Content Include="assets\client\js\bootstrap.min.js" />
+    <Content Include="assets\client\js\controller\baseController.js" />
     <Content Include="assets\client\js\controller\cartController.js" />
     <Content Include="assets\client\js\controller\contactController.js" />
     <Content Include="assets\client\js\controller\userController.js" />
@@ -2925,6 +2927,7 @@
     <Content Include="assets\client\js\fontawesome.min.js" />
     <Content Include="assets\client\js\jquery-1.11.3.js" />
     <Content Include="assets\client\js\jquery-1.7.2.min.js" />
+    <Content Include="assets\client\js\jquery-ui.js" />
     <Content Include="assets\client\js\jquery.accordion.js" />
     <Content Include="assets\client\js\jquery.easing.js" />
     <Content Include="assets\client\js\move-top.js" />
@@ -3171,6 +3174,7 @@
     <Content Include="Views\Contact\Index.cshtml" />
     <Content Include="Views\User\Register.cshtml" />
     <Content Include="Views\User\Login.cshtml" />
+    <Content Include="Views\Product\Search.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
