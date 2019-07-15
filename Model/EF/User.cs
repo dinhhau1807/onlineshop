@@ -36,6 +36,10 @@
         [Display(Name = "Số điện thoại")]
         public string Phone { get; set; }
 
+        public int? ProvinceID { get; set; }
+
+        public int? DistrictID { get; set; }
+
         public DateTime? CreatedDate { get; set; }
 
         [StringLength(50)]
