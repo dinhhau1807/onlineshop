@@ -51,6 +51,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -99,6 +100,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{B130D090-96E6-426A-9AA0-A5E85D19C8E4}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\StaticResource\StaticResource.csproj">
       <Project>{6a0de26a-db8e-4bb0-bd6e-7c8d4492939f}</Project>
       <Name>StaticResource</Name>

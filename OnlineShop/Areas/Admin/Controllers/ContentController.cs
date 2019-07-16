@@ -1,5 +1,6 @@
 ﻿using Model.Dao;
 using Model.EF;
+using OnlineShop.Common;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,9 +12,12 @@ namespace OnlineShop.Areas.Admin.Controllers
     public class ContentController : BaseController
     {
         // GET: Admin/Content
-        public ActionResult Index()
+        public ActionResult Index(string searchString, int page = 1, int pageSize = 10)
         {
-            return View();
+            var dao = new ContentDao();
+            var model = dao.ListAllPaging(searchString, page, pageSize);
+            ViewBag.SearchString = searchString;
+            return View(model);
         }
 
         [HttpGet]
@@ -29,7 +33,14 @@ namespace OnlineShop.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
+                var session = (UserLogin)Session[CommonConstants.USER_SESSION];
+                model.CreatedBy = session.UserName;
 
+                var culture = Session[CommonConstants.CurrentCulture];
+                model.Language = culture.ToString();
+
+                new ContentDao().Create(model);
+                return RedirectToAction("Index");
             }
             SetViewBag();
             return View();
@@ -43,7 +54,7 @@ namespace OnlineShop.Areas.Admin.Controllers
 
             SetViewBag(content.CategoryID);
 
-            return View();
+            return View(content);
         }
 
         [HttpPost]
