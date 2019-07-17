@@ -9,6 +9,7 @@
     [Table("UserGroup")]
     public class UserGroup
     {
+        [Key]
         [StringLength(20)]
         public string ID { get; set; }
 

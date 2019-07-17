@@ -9,6 +9,7 @@
     [Table("Role")]
     public class Role
     {
+        [Key]
         [StringLength(20)]
         public string ID { get; set; }
 

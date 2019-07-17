@@ -7,8 +7,10 @@
     using System.Data.Entity.Spatial;
 
     [Table("Credential")]
+    [Serializable]
     public class Credential
     {
+        [Key]
         [StringLength(20)]
         public string UserGroupID { get; set; }
 
