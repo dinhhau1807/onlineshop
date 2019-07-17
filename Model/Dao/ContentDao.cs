@@ -24,6 +24,11 @@ namespace Model.Dao
             return _context.Contents.Find(id);
         }
 
+        public Tag GetTag(string id)
+        {
+            return _context.Tags.Find(id);
+        }
+
         public long Create(Content content)
         {
             // Xu ly alias
@@ -140,6 +145,65 @@ namespace Model.Dao
                 model = model.Where(x => x.Name.Contains(searchString) || x.Name.Contains(searchString));
             }
             return model.OrderByDescending(x => x.CreatedDate).ToPagedList(page, pageSize);
+        }
+
+        /// <summary>
+        /// List all content for client
+        /// </summary>
+        /// <param name="page"></param>
+        /// <param name="pageSize"></param>
+        /// <returns></returns>
+        public IEnumerable<Content> ListAllPaging(int page, int pageSize)
+        {
+            IQueryable<Content> model = _context.Contents;
+            return model.OrderByDescending(x => x.CreatedDate).ToPagedList(page, pageSize);
+        }
+
+        public IEnumerable<Content> ListAllByTag(string tag, int page, int pageSize)
+        {
+            var model = (from a in _context.Contents
+                         join b in _context.ContentTags
+                         on a.ID equals b.ContentID
+                         where b.TagID == tag
+                         select new
+                         {
+                             ID = a.ID,
+                             Name = a.Name,
+                             MetatTitle = a.MetaTitle,
+                             Image = a.Image,
+                             Description = a.Description,
+                             CreatedDate = a.CreatedDate,
+                             CreatedBy = a.CreatedBy
+                         }).AsEnumerable().Select(x => new Content
+                         {
+                             ID = x.ID,
+                             Name = x.Name,
+                             MetaTitle = x.MetatTitle,
+                             Image = x.Image,
+                             Description = x.Description,
+                             CreatedDate = x.CreatedDate,
+                             CreatedBy = x.CreatedBy
+                         });
+
+            return model.OrderByDescending(x => x.CreatedDate).ToPagedList(page, pageSize);
+        }
+
+        public List<Tag> ListTag(long contentId)
+        {
+            var model = (from a in _context.Tags
+                         join b in _context.ContentTags
+                         on a.ID equals b.TagID
+                         where b.ContentID == contentId
+                         select new
+                         {
+                             ID = b.TagID,
+                             Name = a.Name
+                         }).AsEnumerable().Select(x => new Tag
+                         {
+                             ID = x.ID,
+                             Name = x.Name
+                         });
+            return model.ToList();
         }
     }
 }
