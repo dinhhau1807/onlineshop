@@ -21,6 +21,9 @@
         [Required(ErrorMessage = "Bạn chưa nhập mật khẩu.")]
         public string Password { get; set; }
 
+        [StringLength(20)]
+        public string GroupID { get; set; }
+
         [StringLength(50)]
         [Display(Name = "Họ tên")]
         public string Name { get; set; }
