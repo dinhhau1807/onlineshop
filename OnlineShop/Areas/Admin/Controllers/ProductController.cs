@@ -66,8 +66,10 @@ namespace OnlineShop.Areas.Admin.Controllers
             XElement xElement = new XElement("Images");
             foreach (var item in listImages)
             {
-                var subStringItem = item.Substring(22);
-                xElement.Add(new XElement("Image", subStringItem));
+                var splitItem = item.Split('/');
+                var result = "/" + String.Join("/", splitItem, 3, splitItem.Length - 3);
+
+                xElement.Add(new XElement("Image", result));
             }
 
             var dao = new ProductDao();
