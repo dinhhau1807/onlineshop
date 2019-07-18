@@ -3,6 +3,7 @@ using OnlineShop.Common;
 using OnlineShop.Models;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -20,6 +21,11 @@ namespace OnlineShop.Controllers
             var productDao = new ProductDao();
             ViewBag.NewProducts = productDao.ListNewProduct(4);
             ViewBag.ListFeatureProducts = productDao.ListFeatureProduct(4);
+
+            // Set seo title
+            ViewBag.Title = ConfigurationManager.AppSettings["HomeTitle"];
+            ViewBag.Keywords = ConfigurationManager.AppSettings["HomeKeyword"];
+            ViewBag.Description = ConfigurationManager.AppSettings["HomeDescription"];
 
             return View();
         }

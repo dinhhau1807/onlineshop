@@ -2,7 +2,9 @@
 @model Model.EF.Product
 
 @{
-    ViewBag.Title = "Detail";
+    ViewBag.Title = Model.Name;
+    ViewBag.Keywords = Model.MetaTitle;
+    ViewBag.Desciption = Model.MetaDescriptions;
     Layout = "~/Views/Shared/_Layout.cshtml";
     var category = (Model.EF.ProductCategory)ViewBag.Category;
     var relatedProducts = (List<Model.EF.Product>)ViewBag.RelatedProducts;
