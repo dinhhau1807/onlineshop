@@ -3,9 +3,9 @@
 <script runat="server">
 
     /**
-     * This function must check the user session to be sure that he/she is
-     * authorized to upload and access files using CKFinder.
-     */
+	 * This function must check the user session to be sure that he/she is
+	 * authorized to upload and access files using CKFinder.
+	 */
     public override bool CheckAuthentication()
     {
         // WARNING : DO NOT simply return "true". By doing so, you are allowing
@@ -21,8 +21,8 @@
     }
 
     /**
-     * All configuration settings must be defined here.
-     */
+	 * All configuration settings must be defined here.
+	 */
     public override void SetConfig()
     {
         // Paste your license name and key here. If left blank, CKFinder will
@@ -39,10 +39,10 @@
 
         // Optional: enable extra plugins (remember to copy .dll files first).
         Plugins = new string[] {
-            // "CKFinder.Plugins.FileEditor, CKFinder_FileEditor",
-            // "CKFinder.Plugins.ImageResize, CKFinder_ImageResize",
-            // "CKFinder.Plugins.Watermark, CKFinder_Watermark"
-        };
+			// "CKFinder.Plugins.FileEditor, CKFinder_FileEditor",
+			// "CKFinder.Plugins.ImageResize, CKFinder_ImageResize",
+			// "CKFinder.Plugins.Watermark, CKFinder_Watermark"
+		};
         // Settings for extra plugins.
         PluginSettings = new Hashtable();
         PluginSettings.Add("ImageResize_smallThumb", "90x90");
@@ -112,14 +112,6 @@
 
         // Perform additional checks for image files.
         SecureImageUploads = true;
-
-        // Enables protection in the connector.
-        // The default CSRF protection mechanism is based on double submit cookies, where
-        // connector checks if the request contains a valid token that matches the token
-        // sent in the cookie
-        //
-        // https://www.owasp.org/index.php/Cross-Site_Request_Forgery_%28CSRF%29_Prevention_Cheat_Sheet#Double_Submit_Cookies
-        EnableCsrfProtection = true;
 
         // The session variable name that CKFinder must use to retrieve the
         // "role" of the current user. The "role" is optional and can be used

@@ -21,6 +21,7 @@
     <WebStackScaffolding_DbContextTypeFullName>Model.EF.OnlineShopDbContext</WebStackScaffolding_DbContextTypeFullName>
     <Controller_SelectedScaffolderID>MvcControllerEmptyScaffolder</Controller_SelectedScaffolderID>
     <Controller_SelectedScaffolderCategoryPath>root/Controller</Controller_SelectedScaffolderCategoryPath>
+    <NameOfLastUsedPublishProfile>OnlineShop</NameOfLastUsedPublishProfile>
   </PropertyGroup>
   <ProjectExtensions>
     <VisualStudio>

@@ -1,0 +1,110 @@
+﻿@model PagedList.IPagedList<Model.EF.Product>
+@using PagedList.Mvc
+
+@{
+    ViewBag.Title = "Quản lí sản phẩm";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@section breadcrumb{
+    <li class="breadcrumb-item active">Product</li>
+}
+
+@section jsFooter {
+    <script src="~/assets/admin/js/controller/productController.js"></script>
+}
+
+<!-- DataTables Example -->
+<div class="card mb-3">
+    <div class="card-header">
+        <i class="fas fa-table"></i>
+        Danh sách tin tức
+    </div>
+    <div class="card-body">
+        @using (Html.BeginForm("Index", "Content", FormMethod.Get))
+        {
+            <div class="row form-group">
+                <div class="col-lg-12">
+                    <div class="col-md-4 d-inline-block">
+                        <input type="text" value="@ViewBag.SearchString" class="form-control" name="searchString" />
+                    </div>
+                    <div class="col-md-4 d-inline-block">
+                        <button type="submit" class="btn btn-success">Tìm kiếm</button>
+                        <a class="btn btn-primary" href="/Admin/Product/Create">Thêm mới</a>
+                    </div>
+                </div>
+            </div>
+        }
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Tiêu đề</th>
+                        <th>Hình ảnh</th>
+                        <th>Ngày đăng</th>
+                        <th>Trạng thái</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>Tiêu đề</th>
+                        <th>Hình ảnh</th>
+                        <th>Ngày đăng</th>
+                        <th>Trạng thái</th>
+                        <th></th>
+                    </tr>
+                </tfoot>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr id="row_@item.ID">
+                            <td>@item.Name</td>
+                            <td><img src="@item.Image" alt="@item.Name" /></td>
+                            <td>@item.CreatedDate</td>
+                            <td><a href="#" class="btn-active" data-id="@item.ID">@(item.Status.GetValueOrDefault(true) ? "Kích hoạt" : "Khóa")</a></td>
+                            <td>
+                                <a href="#" data-id="@item.ID" class="btn-images">Quản lí ảnh</a> /
+                                <a href="/Admin/Content/Edit/@item.ID">Sửa</a> /
+                                @Ajax.ActionLink("Xoá", "Delete", new { @id = item.ID }, new AjaxOptions
+                           {
+                               Confirm = "Bạn có muốn xoá tin tức này?",
+                               OnComplete = $"$('#row_{@item.ID}').remove()",
+                               HttpMethod = "Delete"
+                           })
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            @*@Html.PagedListPager(Model, page => Url.Action("Index", new { page }))*@
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div id="imagesManage" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Quản lý ảnh</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div id="imageList" style="margin:5px">
+
+                </div>
+                <div class="clear"></div>
+                <input type="button" id="btnChoseImages" value="Chọn ảnh" class="btn btn-primary" />
+                <input type="hidden" id="hidProductID" value="0" />
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" data-dismiss="modal" id="btnSaveImages">Save</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>

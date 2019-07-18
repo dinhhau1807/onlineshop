@@ -1,5 +1,6 @@
 ﻿using Model.EF;
 using Model.ViewModel;
+using PagedList;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -123,6 +124,23 @@ namespace Model.Dao
                  .Take(pageSize);
 
             return model.ToList();
+        }
+
+        public IEnumerable<Product> ListAllPaging(string searchString, int page, int pageSize)
+        {
+            IQueryable<Product> model = _context.Products;
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                model = model.Where(x => x.Name.Contains(searchString) || x.Name.Contains(searchString));
+            }
+            return model.OrderByDescending(x => x.CreatedDate).ToPagedList(page, pageSize);
+        }
+
+        public void UpdateImages(long productId, string images)
+        {
+            var product = _context.Products.Find(productId);
+            product.MoreImages = images;
+            _context.SaveChanges();
         }
     }
 }
